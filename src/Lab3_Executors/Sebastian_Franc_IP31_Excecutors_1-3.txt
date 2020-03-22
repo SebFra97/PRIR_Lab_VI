@@ -1,0 +1,42 @@
+1.
+
+i)
+
+Czas kopiowania dla 2 w¹tków: 33257 ms.
+Czas kopiowania dla 4 w¹tków: 31608 ms.
+Czas kopiowania dla 7 w¹tków: 30094 ms.
+
+
+j) 
+
+Polecenie shutdown dla executora pozwoli wykonywaæ wywo³ane ju¿ zadania do koñca, 
+ale nie przyjmie ¿adnych nowych.Wówczas chc¹c odrazu anulowaæ wykonywane w¹tki 
+nale¿a³oby u¿yæ polecenia shutdownNow. Istnieje jednak mo¿liwoœæ,¿e zadania 
+mog¹ nie zost¹æ przerwane.
+
+2.
+
+newSingleThreadExecutor() - tworzy jeden w¹tek roboczy do wykonywania zadañ zgodnego z kolejk¹. 
+
+newFixedThreadPool(int nThreads) - pula w¹tków o sta³ym rozmiarze.
+
+newCachedThreadPool() - tworzy nowe w¹tki o ile s¹ wymagane, w przeciwnym razie u¿ywa starych.
+
+newScheduledThreadPool(int corePoolSize) - pozwala zarz¹dzaæ kolejnoœci¹ wykonywania zadañ.
+
+newWorkStealingPool() - tworzy pulê w¹tków kradn¹c¹ pracê przy u¿yciu wszystkich dostêpnych procesorów 
+			jako docelowego poziomu równoleg³oœci.
+
+newSingleThreadScheduledExecutor() - tworzy jeden w¹tek executora, tak¿e zdolnego do wykonywania kolejnoœci
+				   zadañ.
+
+3. 
+
+Interface Callable pozwala zwracaæ wynik z metody run, czego nie zwraca z koleji Runnable.
+Runnable nie umo¿liwia tak¿e zg³oszenie sprawdzonego wyj¹tku, podczas gdy Callable mo¿e zg³osiæ
+wyj¹tek.
+
+Future jest interfacem który pokazuje wynik obliczeñ asynchronicznych. Metody w nim pozwalaj¹ sprawdzaæ 
+czas oczekiwania na zakoñczenie obliczeñ czy te¿ wykazanie czy siê zakoñczy³y, a tak¿e zwróciæ ich wynik.
+U¿ywany w parze z interfejsem Callable.
+
