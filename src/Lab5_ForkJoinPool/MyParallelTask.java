@@ -16,16 +16,41 @@ public class MyParallelTask extends RecursiveAction {
             this.koniec = koniec;
         }
 
+        // OPARTE O LISTĘ TASKÓW + invokeAll
+
+        /*
         @Override
         protected void compute() {
             int j = split(array, start, koniec);
+
             List<MyParallelTask> list = new ArrayList<>();
+
             if (start < j)
                 list.add(new MyParallelTask(array, start, j - 1));
             if (j + 1 < koniec)
                 list.add(new MyParallelTask(array, j + 1, koniec));
+
             this.invokeAll(list);
+        }*/
+
+    @Override
+    protected void compute() {
+        int j = split(array, start, koniec);
+        MyParallelTask t1 = null, t2 = null;
+        if (start < j) {
+            t1 = new MyParallelTask(array, start, j - 1);
+            t1.fork();
         }
+        if (j + 1 < koniec) {
+            t2 = new MyParallelTask(array, j + 1, koniec);
+            t2.fork();
+        }
+        if (t2 != null)
+            t2.join();
+        if (t1 != null)
+            t1.join();
+    }
+
 
 
         private int split(int[] tab, int start, int koniec) {
