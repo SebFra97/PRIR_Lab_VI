@@ -8,11 +8,11 @@ import java.util.concurrent.Executors;
 
 public class SingletonService {
 
-    private static volatile SingletonService instance;
-    private static volatile CompletionService<HashMap<Integer,Integer>> service;
+    private static SingletonService instance;
+    private static CompletionService<HashMap<Integer,Integer>> service;
 
     public SingletonService() {
-        service = new ExecutorCompletionService<>(Executors.newFixedThreadPool(10));
+        service = new ExecutorCompletionService<>(Executors.newFixedThreadPool(5));
     }
 
     public static SingletonService getInstance() {

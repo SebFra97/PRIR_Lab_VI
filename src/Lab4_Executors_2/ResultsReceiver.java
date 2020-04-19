@@ -17,16 +17,18 @@ public class ResultsReceiver implements Runnable {
 
         while(true)
         {
+            HashMap<Integer,Integer> instanceList = null;
             try {
-                HashMap<Integer,Integer> instanceList = SingletonService.getInstance().getService().take().get();
-                for (Map.Entry<Integer,Integer> entry : instanceList.entrySet()) {
-                    System.out.println("Liczba " + entry.getKey() + " wystepuje " + entry.getValue() + " razy");
-                }
+                instanceList = SingletonService.getInstance().getService().take().get();
             } catch (InterruptedException e) {
                 e.printStackTrace();
             } catch (ExecutionException e) {
                 e.printStackTrace();
             }
+            for (Map.Entry<Integer,Integer> entry : instanceList.entrySet()) {
+                    System.out.println("Liczba " + entry.getKey() + " wystepuje " + entry.getValue() + " razy");
+                }
+
         }
     }
 }

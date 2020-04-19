@@ -24,13 +24,12 @@ public class main {
         }
     }
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws InterruptedException {
 
-        //generateFiles();
+       // generateFiles();
         Thread taskProvider = new Thread(new TaskProvider());
         Thread resultsReceiver = new Thread(new ResultsReceiver());
         taskProvider.start();
         resultsReceiver.start();
-
     }
 }
