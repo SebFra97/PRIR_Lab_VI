@@ -3,4 +3,7 @@
   <component name="CompilerConfiguration">
     <bytecodeTargetLevel target="10" />
   </component>
+  <component name="RmicSettings">
+    <option name="IS_EANABLED" value="true" />
+  </component>
 </project>
