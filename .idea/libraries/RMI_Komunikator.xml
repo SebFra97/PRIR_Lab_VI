@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="RMI_Komunikator">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/src/RMI_Komunikator.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

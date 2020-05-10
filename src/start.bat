@@ -1,0 +1,1 @@
+java -jar RMI_Komunikator.jar
